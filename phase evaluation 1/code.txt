@@ -1,0 +1,29 @@
+const int led = 13;
+const int ldr = A0;
+void setup()
+{
+  pinMode(13, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  int ldrwork = analogRead(ldr);
+  if(ldrwork <= 40)
+  {
+   
+  digitalWrite(led, HIGH);
+  delay(100); // Wait for 100 millisecond(s)
+  digitalWrite(led, LOW);
+  delay(100); // Wait for 100 millisecond(s)
+    digitalWrite(led,HIGH);
+Serial.print("one touching the door so blink");
+    Serial.println(ldrwork);
+    
+  }
+  else {
+    digitalWrite(led,LOW);
+    Serial.print("no one touches the door- no blink");
+    Serial.println(ldrwork);
+  }
+}
